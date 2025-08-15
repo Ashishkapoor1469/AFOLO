@@ -23,12 +23,12 @@ const skillsData = {
   database: {
     title: "Databases",
     icon: <Database className="h-8 w-8 text-primary" />,
-    skills: ["MongoDB", "PostgreSQL", "Firebase", "MySQL"],
+    skills: ["MongoDB", "PostgreSQL", "Firebase", "MySQL","Superbase"],
   },
   tools: {
     title: "Tools & Others",
     icon: <PenTool className="h-8 w-8 text-primary" />,
-    skills: ["Git", "GitHub", "Docker", "Webpack", "Vite", "Jest"],
+    skills: ["Git", "GitHub", "Docker", "Webpack", "Vite","Figma", "Postman", "VS Code"],
   },
 };
 
@@ -52,7 +52,7 @@ export function Skills() {
           }
         );
     
-        skillsRef.current.forEach((skill, index) => {
+        skillsRef.current.forEach((skill:any, index:any) => {
           if (skill) {
             gsap.fromTo(
               skill,

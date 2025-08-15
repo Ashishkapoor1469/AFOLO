@@ -130,14 +130,14 @@ export function GithubProjects() {
               <div key={index} ref={el => (projectsRef.current[index] = el)}>
               <Card className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 h-full">
                 <CardHeader className="p-0">
-                  <Image 
+                {project.image?<Image 
                     src={`https://placehold.co/600x400.png`}
                     alt={project.name} 
                     width={600} 
                     height={400} 
                     className="w-full h-48 object-cover"
                     data-ai-hint="tech project"
-                  />
+                  />:<></>}  
                 </CardHeader>
                 <CardContent className="p-6 flex-1 flex flex-col">
                   <CardTitle className="mb-2">{project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</CardTitle>
