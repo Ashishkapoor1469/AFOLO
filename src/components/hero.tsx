@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-
+import Img2 from "@/photos/image-from-rawpixel-id-18436122-png.png"
 export function Hero() {
   const heroRef = useRef(null);
 
@@ -53,7 +53,7 @@ export function Hero() {
         </div>
         <div className="hero-image hidden lg:block">
           <Image 
-            src="https://placehold.co/600x600.png"
+            src={Img2}
             alt="Ashish Kapoor"
             width={600}
             height={600}

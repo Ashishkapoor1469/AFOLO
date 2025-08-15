@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Contact() {
@@ -41,17 +41,17 @@ export function Contact() {
         </div>
         <div className="contact-anim mt-8">
           <Button asChild size="lg">
-            <a href="mailto:ashish.kapoor.dev@example.com">
+            <a href="mailto:kapoorashish714@gmail.com.com">
               <Mail className="mr-2 h-5 w-5" />
               Say Hello
             </a>
           </Button>
         </div>
         <div className="contact-anim mt-12 flex justify-center gap-6">
-          <Link href="https://github.com/ashishk-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <Link href="https://github.com/Ashishkapoor1469" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <Github className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
           </Link>
-          <Link href="https://linkedin.com/in/ashishk-dev" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <Link href="https://linkedin.com/in/ashishkapoor4169" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Linkedin className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
           </Link>
           <Link href="https://twitter.com/ashishk_dev" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
