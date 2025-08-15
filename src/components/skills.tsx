@@ -109,7 +109,7 @@ export function Skills() {
           {Object.values(skillsData).map((category, index) => (
             <div
               key={category.title}
-              ref={(el) => (skillsRef.current[index] = el)}
+              ref={(el:any) => (skillsRef.current[index] = el)}
             >
               <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30">
                 <CardHeader>
