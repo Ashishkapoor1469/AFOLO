@@ -113,7 +113,6 @@ export function GithubProjects() {
         </div>
 
         {/* Projects */}
-      {projects.length!==0?<div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {loading
             ? Array.from({ length: 3 }).map((_, index) => (
                 <Card
@@ -195,7 +194,7 @@ export function GithubProjects() {
                   </Card>
                 </div>
               ))}
-        </div>:<><h1 className="text-black text-3xl text-center my-8 text-pretty">Creadit Limit out For day</h1></>}  
+        </div>
 
         {/* View All */}
         <div className="mt-12 text-center">
