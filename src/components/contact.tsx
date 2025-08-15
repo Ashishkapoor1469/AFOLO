@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Code, Database, Server, PenTool } from "lucide-react";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
