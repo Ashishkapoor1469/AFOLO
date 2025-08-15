@@ -21,8 +21,8 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section id="home" ref={heroRef} className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-25">
+      <div className=" flex md:flex-row flex-col-reverse items-center justify-evenly gap-4">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="hero-title block text-primary">Ashish Kapoor</span>
@@ -51,7 +51,7 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="hero-image hidden lg:block">
+        <div className="hero-image block">
           <Image 
             src={Img2}
             alt="Ashish Kapoor"
