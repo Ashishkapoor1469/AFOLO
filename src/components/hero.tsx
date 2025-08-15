@@ -21,7 +21,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-25">
+    <section id="home" ref={heroRef} className="mx-auto max-w-full  px-4 sm:px-6 lg:px-8 py-20 sm:py-25">
       <div className=" flex md:flex-row flex-col-reverse items-center justify-evenly gap-4">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
