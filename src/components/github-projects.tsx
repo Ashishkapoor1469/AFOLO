@@ -7,10 +7,14 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowUpRight, Github } from "lucide-react";
 import { enhanceProjectDetails, EnhanceProjectDetailsOutput } from "@/ai/flows/project-showcase-flow";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
-const GITHUB_USERNAME = "ashishk-dev";
+gsap.registerPlugin(ScrollTrigger);
+
+const GITHUB_USERNAME = "Ashishkapoor1469";
 
 interface Project extends EnhanceProjectDetailsOutput {
   name: string;
@@ -21,6 +25,8 @@ interface Project extends EnhanceProjectDetailsOutput {
 export function GithubProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const sectionRef = useRef(null);
+  const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     async function fetchProjects() {
@@ -52,10 +58,48 @@ export function GithubProjects() {
     fetchProjects();
   }, []);
 
+  useEffect(() => {
+    if (!loading && projects.length > 0) {
+      const el = sectionRef.current;
+      gsap.fromTo(
+        '.section-title',
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 80%',
+          },
+        }
+      );
+
+      projectsRef.current.forEach((project, index) => {
+        if (project) {
+          gsap.fromTo(
+            project,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.5,
+              delay: index * 0.1,
+              scrollTrigger: {
+                trigger: project,
+                start: 'top 90%',
+              },
+            }
+          );
+        }
+      });
+    }
+  }, [loading, projects]);
+
   return (
-    <section id="projects" className="bg-muted py-20 sm:py-32">
+    <section id="projects" ref={sectionRef} className="bg-secondary py-20 sm:py-32">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center animate-in fade-in slide-in-from-bottom-12 duration-500">
+        <div className="text-center section-title">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Projects Showcase</h2>
           <p className="mt-4 text-lg text-muted-foreground">A selection of my work from GitHub, powered by AI.</p>
         </div>
@@ -83,7 +127,8 @@ export function GithubProjects() {
             ))
           ) : (
             projects.map((project, index) => (
-              <Card key={index} className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 animate-in fade-in slide-in-from-bottom-12 duration-500" style={{animationDelay: `${index * 150}ms`}}>
+              <div key={index} ref={el => (projectsRef.current[index] = el)}>
+              <Card className="flex flex-col overflow-hidden transition-transform duration-300 ease-in-out hover:-translate-y-2 h-full">
                 <CardHeader className="p-0">
                   <Image 
                     src={`https://placehold.co/600x400.png`}
@@ -94,12 +139,12 @@ export function GithubProjects() {
                     data-ai-hint="tech project"
                   />
                 </CardHeader>
-                <CardContent className="p-6 flex-1">
+                <CardContent className="p-6 flex-1 flex flex-col">
                   <CardTitle className="mb-2">{project.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</CardTitle>
-                  <p className="text-muted-foreground text-sm mb-4 h-24 overflow-hidden">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                      <Badge key={tag} variant="outline">{tag}</Badge>
                     ))}
                   </div>
                 </CardContent>
@@ -110,16 +155,17 @@ export function GithubProjects() {
                             <Link href={project.homepage} target="_blank">Live Demo <ArrowUpRight className="ml-2 h-4 w-4" /></Link>
                         </Button>
                     )}
-                    <Button asChild variant="link" className="p-0 h-auto">
+                    <Button asChild variant="link" className="p-0 h-auto ml-auto">
                       <Link href={project.html_url} target="_blank">GitHub <Github className="ml-2 h-4 w-4" /></Link>
                     </Button>
                   </div>
                 </CardFooter>
               </Card>
+              </div>
             ))
           )}
         </div>
-        <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-12 duration-500" style={{ animationDelay: '450ms' }}>
+        <div className="mt-12 text-center">
             <Button asChild>
                 <Link href={`https://github.com/${GITHUB_USERNAME}`} target="_blank">
                     View All Projects on GitHub

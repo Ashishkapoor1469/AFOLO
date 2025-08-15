@@ -1,21 +1,37 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 export function Hero() {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    
+    tl.fromTo('.hero-title', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, stagger: 0.2 });
+    tl.fromTo('.hero-p', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
+    tl.fromTo('.hero-buttons', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
+    tl.fromTo('.hero-socials', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6");
+    tl.fromTo('.hero-image', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 1 }, "-=0.8");
+  }, []);
+
   return (
-    <section id="home" className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+    <section id="home" ref={heroRef} className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="animate-in fade-in slide-in-from-left-12 duration-500">
+        <div>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="block text-primary">Ashish Kapoor</span>
-            <span className="block text-foreground">Full-Stack Developer</span>
+            <span className="hero-title block text-primary">Ashish Kapoor</span>
+            <span className="hero-title block text-foreground">Full-Stack Developer</span>
           </h1>
-          <p className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl">
+          <p className="hero-p mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl">
             Crafting elegant and efficient web solutions. I specialize in building modern, responsive applications with a focus on user experience and performance.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="hero-buttons mt-8 flex flex-wrap gap-4">
             <Button asChild size="lg">
               <Link href="#projects">View My Work</Link>
             </Button>
@@ -23,7 +39,7 @@ export function Hero() {
               <Link href="#contact">Get in Touch</Link>
             </Button>
           </div>
-          <div className="mt-8 flex items-center gap-4">
+          <div className="hero-socials mt-8 flex items-center gap-4">
             <Link href="https://github.com/ashishk-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-7 w-7 text-muted-foreground hover:text-primary transition-colors" />
             </Link>
@@ -35,7 +51,7 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="hidden lg:block animate-in fade-in slide-in-from-right-12 duration-500">
+        <div className="hero-image hidden lg:block">
           <Image 
             src="https://placehold.co/600x600.png"
             alt="Ashish Kapoor"
