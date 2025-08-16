@@ -118,7 +118,7 @@ export function GithubProjects() {
             ? Array.from({ length: 3 }).map((_, index) => (
                 <Card
                   key={index}
-                  className="flex flex-col overflow-hidden rounded-2xl backdrop-blur-lg bg-white/5 border border-white/10"
+                  className="flex flex-col overflow-hidden rounded-2xl backdrop-blur-lg"
                 >
                   <CardHeader className="p-6">
                     <Skeleton className="h-8 w-3/4 mb-2" />
@@ -141,10 +141,10 @@ export function GithubProjects() {
                   key={index}
                   ref={(el:any) => (projectsRef.current[index] = el)}
                 >
-                  <Card className="group flex flex-col overflow-hidden rounded-2xl backdrop-blur-lg bg-white/5 border border-white/10 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20">
+                  <Card className="group flex flex-col overflow-hidden rounded-2xl backdrop-blur-lg border">
                     {/* Header */}
-                    <CardHeader className="p-6 flex items-center gap-3 bg-gradient-to-r from-primary/20 to-primary/10">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <CardHeader className="p-6 flex items-center  border-b">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full  text-primary">
                         <Code2 className="h-5 w-5" />
                       </div>
                       <CardTitle className="text-lg font-semibold">

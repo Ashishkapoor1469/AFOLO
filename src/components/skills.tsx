@@ -111,7 +111,7 @@ export function Skills() {
               key={category.title}
               ref={(el:any) => (skillsRef.current[index] = el)}
             >
-              <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30">
+              <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-300  hover:shadow-lg hover:shadow-primary/30">
                 <CardHeader>
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     {category.icon}

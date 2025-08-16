@@ -57,9 +57,9 @@ export function Hero() {
             alt="Ashish Kapoor"
             width={600}
             height={600}
+            loading="lazy"
             className="rounded-full shadow-2xl object-cover"
             data-ai-hint="developer portrait"
-            priority
           />
         </div>
       </div>
