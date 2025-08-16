@@ -58,7 +58,7 @@ export function Hero() {
             width={600}
             height={600}
             loading="lazy"
-            className="rounded-full shadow-2xl object-cover"
+            className="rounded-full shadow-md shadow-neutral-400"
             data-ai-hint="developer portrait"
           />
         </div>
