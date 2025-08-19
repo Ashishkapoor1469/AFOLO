@@ -51,48 +51,10 @@ const skillsData = {
 };
 
 export function Skills() {
-  const sectionRef = useRef(null);
-  const skillsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    gsap.fromTo(
-      ".skills-title",
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 80%",
-        },
-      }
-    );
-
-    gsap.fromTo(
-      skillsRef.current,
-      { opacity: 0, scale: 0.95, y: 50 },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: el,
-          start: "top 70%",
-        },
-      }
-    );
-  }, []);
-
+ 
   return (
     <section
       id="skills"
-      ref={sectionRef}
       className="py-20 sm:py-32 bg-gradient-to-b from-background to-muted"
     >
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -109,7 +71,6 @@ export function Skills() {
           {Object.values(skillsData).map((category, index) => (
             <div
               key={category.title}
-              ref={(el:any) => (skillsRef.current[index] = el)}
             >
               <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-300  hover:shadow-lg hover:shadow-primary/30">
                 <CardHeader>
