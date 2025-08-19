@@ -72,7 +72,7 @@ export function Skills() {
             <div
               key={category.title}
             >
-              <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-300  hover:shadow-lg hover:shadow-primary/30">
+              <Card className="relative group h-full border border-white/10 bg-white/5 backdrop-blur-lg transition-all duration-700  hover:shadow-lg hover:shadow-primary/30">
                 <CardHeader>
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                     {category.icon}
@@ -87,7 +87,7 @@ export function Skills() {
                       <Badge
                         key={skill}
                         variant="secondary"
-                        className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                        className="px-3 py-1 text-sm duration-700 bg-white/10 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
                       >
                         {skill}
                       </Badge>
